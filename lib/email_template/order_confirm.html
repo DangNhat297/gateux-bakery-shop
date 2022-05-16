@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Gateux Order Confirmation</title>
+    <style>
+        *{
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgb(226, 226, 226);
+        }
+        .container{
+            width: 700px;
+            margin: 10px auto;
+            background: #fff;
+        }
+        .heading-top {
+            padding: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 2rem;
+            background-image: url(https://i.imgur.com/atXrYp4.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: cursive;
+            color: #fff;
+            border-radius: 3px 3px 0 0;
+        }
+        .information{
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 30px;
+            display: inline-block;
+            width: 100%;
+            border-bottom: 0.5px solid #ff9d88;
+        }
+        .information > .col{
+            flex:1;
+        }
+        .font-weight-bold{
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .opacity-70{
+            opacity: 0.7 !important;
+        }
+        .table-order-detail{
+            padding: 10px 30px;
+            margin: 10px 0;
+        }
+        table.order-detail{
+            width: 100%;
+            font-size: 1rem;
+            border-collapse: collapse;
+        }
+        .text-left{
+            text-align: left !important;
+        }
+        .text-right{
+            text-align: right !important;
+        }
+        table.order-detail thead th{
+            text-transform: uppercase;
+            opacity: 0.7;
+            padding: 5px;
+            font-weight: bold;
+            border-bottom: 2px solid rgb(207, 207, 207);
+        }
+        table.order-detail tbody td{
+            font-weight: bold;
+            text-align: center; 
+            padding: 10px;
+        }
+        .text-color-pink{
+            color: #ff9d88 !important;
+        }
+        .text-color-danger{
+            color: rgb(241, 205, 2) !important;
+        }
+        table.order-detail tfoot{
+            border-top: 2px solid rgb(207, 207, 207);
+        }
+        table.order-detail tfoot th{
+            padding: 10px;
+            font-weight: bold;
+
+        }
+        .footer{
+            padding: 10px;
+            background: #ff9d88;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+        .preheader {
+            color: transparent;
+            display: none;
+            height: 0;
+            max-height: 0;
+            max-width: 0;
+            opacity: 0;
+            overflow: hidden;
+            mso-hide: all;
+            visibility: hidden;
+            width: 0; 
+      }
+    </style>
+</head>
+<body>
+    <span class="preheader">Confirm order on the store Gateux.</span>
+    <div class="container">
+        <div class="heading-top">Gateux Order Confirmation</div>
+        <div class="information">
+            <div class="col" style="float:left">
+                <div class="font-weight-bold">order date</div>
+                <span class="opacity-70">{{date}}</span>
+            </div>
+            <div class="col" style="float: right;">
+                <div class="font-weight-bold">DELIVERED TO.</div>
+                <span class="opacity-70">{{fullname}}</span><br>
+                <span class="opacity-70">{{phone}}</span><br>
+                <span class="opacity-70">{{email}}</span><br>
+                <span class="opacity-70">{{address}}</span><br>
+                <span class="opacity-70">{{note}}</span>
+            </div>
+        </div>
+        <div class="table-order-detail">
+            <table class="order-detail">
+                <thead>
+                    <tr>
+                        <th class="text-left">order items</th>
+                        <th>qty</th>
+                        <th>price</th>
+                        <th class="text-right">amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{details}}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="text-left">Payment type</th>
+                        <th class="text-right" colspan="3">Payment on delivery</th>
+                    </tr>
+                    <tr>
+                        <th class="text-left">Status</th>
+                        <th class="text-right text-color-danger" colspan="3">Pending</th>
+                    </tr>
+                    <tr>
+                        <th class="text-left">Total price</th>
+                        <th class="text-right" colspan="3">{{sum}}</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="footer">Thanks !</div>
+    </div>
+</body>
+</html>

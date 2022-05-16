@@ -1,0 +1,54 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# 404
+ErrorDocument 404 /404.php
+
+# 404.php
+RewriteRule ^404|404/$ 404.php [L]
+
+# index.php
+RewriteRule ^home|home/$ index.php [L]
+
+# auth.php
+RewriteRule ^auth|auth/$ auth.php [L]
+
+# contact.php
+RewriteRule ^contact|contact/$ contact.php [L]
+
+# profile.php
+RewriteRule ^profile|profile/$ profile.php [L]
+
+# shop.php
+RewriteRule ^shop|shop/$ shop.php [L]
+
+# product.php
+RewriteRule ^product/([a-zA-Z0-9-_]*)-([0-9]*)|product/([a-zA-Z0-9-_]*)-([0-9]*)/$ product.php?id=$2 [L]
+
+# cart.php
+RewriteRule ^cart|cart/$ cart.php [L]
+
+# wishlist.php
+RewriteRule ^wishlist|wishlist/$ wishlist.php [L]
+
+# wishlist.php
+RewriteRule ^checkout|checkout/$ checkout.php [L]
+
+# logout.php
+RewriteRule ^logout|logout/$ logout.php [L]
+
+# blog.php
+RewriteRule ^blog|blog/$ blog.php [L]
+
+# single-post.php
+RewriteRule ^post/([a-zA-Z0-9-_]*)|post/([a-zA-Z0-9-_]*)/$ single-post.php?slug=$1 [L]
+
+# active.php
+RewriteRule ^active|active/$ active.php [L]
+
+# recovery-password.php
+RewriteRule ^recovery-password|recovery-password/$ recovery-password.php [L]
+
+# prevent folder listing
+IndexIgnore *
